@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { AuthProvider } from 'news_saas_site\frontend\src\context\authContext.js';
+import { AuthProvider } from 'news_saas_site\frontend\context\AuthContext.js';
 import LandingPage from './components/LandingPage/LandingPage';
 import Dashboard from './components/Dashboard/Dashboard';
 import LoginForm from './components/LoginForm/LoginForm';

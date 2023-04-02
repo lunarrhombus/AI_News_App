@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignupForm.css';
-
+import { AuthProvider } from 'news_saas_site\frontend\src\context\AuthContext.js';
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
