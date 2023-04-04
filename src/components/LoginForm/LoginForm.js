@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { AuthContext } from 'news_saas_site\frontend\src\context\AuthContext.js';
+import { AuthContext } from "../../context/AuthContext.js";
 import api from '../../services/api';
 import './LoginForm.css';
 

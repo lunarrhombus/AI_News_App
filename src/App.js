@@ -1,6 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { AuthProvider } from 'news_saas_site\frontend\context\AuthContext.js';
+
+// import Switch from 'react-router-dom/Switch';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { AuthProvider } from "./context/AuthContext";
+
 import LandingPage from './components/LandingPage/LandingPage';
 import Dashboard from './components/Dashboard/Dashboard';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -10,18 +13,18 @@ import './App.css';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <BrowserRouter>
         <div className="App">
           {/* Include your navigation bar component here, if applicable */}
-          <Switch>
+          <Routes>
             <Route exact path="/" component={LandingPage} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/login" component={LoginForm} />
             <Route path="/signup" component={SignupForm} />
             {/* Add more routes as needed */}
-          </Switch>
+          </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
     </AuthProvider>
   );
 }

@@ -1,54 +1,23 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { createContext } from 'react';
-import { AuthContext } from 'news_saas_site\frontend\src\context\authContext.js';
+import { createContext, useState } from "react";
 
+export const AuthContext = createContext();
 
-const AuthContext = createContext();
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
 
-const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [preferences, setPreferences] = useState({});
-
-  useEffect(() => {
-    // Check for existing user session here, if applicable
-    // For example, you could fetch user data from local storage or an API
-    const existingUserData = localStorage.getItem('user');
-    if (existingUserData) {
-      setUser(JSON.parse(existingUserData));
-    }
-  }, []);
-
-  const login = (userData) => {
-    setUser(userData);
-    // Save user session data, e.g., storing data in local storage or setting an authentication cookie
-    localStorage.setItem('user', JSON.stringify(userData));
+  const login = (email, password) => {
+    // Call login API and set currentUser state
   };
 
   const logout = () => {
-    setUser(null);
-    // Clear user session data, e.g., clearing local storage or removing an authentication cookie
-    localStorage.removeItem('user');
+    // Call logout API and set currentUser state to null
   };
 
-  const updatePreferences = (newPreferences) => {
-    setPreferences(newPreferences);
-    // Save preferences data, e.g., storing data in local storage or an API
-    localStorage.setItem('preferences', JSON.stringify(newPreferences));
+  const value = {
+    currentUser,
+    login,
+    logout
   };
 
-  return (
-    <AuthContext.Provider
-      value={{
-        user,
-        preferences,
-        login,
-        logout,
-        updatePreferences,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-
-export { AuthContext, AuthProvider };
