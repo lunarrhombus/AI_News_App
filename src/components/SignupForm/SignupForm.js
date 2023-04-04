@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignupForm.css';
-import { AuthContext } from "../../context/AuthContext.js";
+// import { AuthContext } from "../../context/AuthContext.js";
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
