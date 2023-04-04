@@ -2,7 +2,7 @@ import React from 'react';
 
 // import Switch from 'react-router-dom/Switch';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "../context/AuthContext";
 
 import LandingPage from './components/LandingPage/LandingPage';
 import Dashboard from './components/Dashboard/Dashboard';
